@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<imdata totalCount="1">
+
+
+<fvTenant name="hangwe-apitest" ownerTag="" ownerKey="" dn="uni/tn-hangwe-apitest" descr="">
+
+
+<vzBrCP name="CTR-hangwe-web2app" ownerTag="" ownerKey="" descr="" targetDscp="unspecified" scope="tenant" prio="unspecified">
+
+
+<vzSubj name="Subject" descr="" targetDscp="unspecified" prio="unspecified" revFltPorts="yes" provMatchT="AtleastOne" consMatchT="AtleastOne">
+
+<vzRsSubjFiltAtt tnVzFilterName="default"/>
+
+</vzSubj>
+
+</vzBrCP>
+
+
+<vzBrCP name="CTR-hangwe-app2db" ownerTag="" ownerKey="" descr="" targetDscp="unspecified" scope="tenant" prio="unspecified">
+
+
+<vzSubj name="Subject" descr="" targetDscp="unspecified" prio="unspecified" revFltPorts="yes" provMatchT="AtleastOne" consMatchT="AtleastOne">
+
+<vzRsSubjFiltAtt tnVzFilterName="default"/>
+
+</vzSubj>
+
+</vzBrCP>
+
+
+<drawCont>
+
+<drawInst oDn="uni/tn-hangwe-apitest/ap-ANP-hangwe-test01" info="{'{fvAp/epg}-{EPG-hangwe-web}':{'x':714.5,'y':333.5},'{fvAp/epg}-{EPG-hangwe-app}':{'x':834.5,'y':333.5},'{fvAp/epg}-{EPG-hangwe-db}':{'x':954.5,'y':333.5},'{fvAp/contract}-{CTR-hangwe-app2db}':{'x':1041.5,'y':10},'{fvAp/contract}-{CTR-hangwe-web2app}':{'x':921.5,'y':10}}"/>
+
+</drawCont>
+
+
+<fvCtx name="VRF-hangwe-all" ownerTag="" ownerKey="" descr="" pcEnfPref="enforced" pcEnfDir="ingress" knwMcastAct="permit">
+
+<fvRsCtxToExtRouteTagPol tnL3extRouteTagPolName=""/>
+
+<fvRsBgpCtxPol tnBgpCtxPolName=""/>
+
+<vzAny name="" descr="" matchT="AtleastOne"/>
+
+<fvRsOspfCtxPol tnOspfCtxPolName=""/>
+
+<fvRsCtxToEpRet tnFvEpRetPolName=""/>
+
+</fvCtx>
+
+
+<fvBD name="BD-hangwe-all" ownerTag="" ownerKey="" descr="" vmac="not-applicable" unkMcastAct="flood" unkMacUcastAct="proxy" unicastRoute="yes" multiDstPktAct="bd-flood" mac="00:22:BD:F8:19:FF" llAddr="::" limitIpLearnToSubnets="yes" epMoveDetectMode="" arpFlood="no">
+
+<fvRsBDToNdP tnNdIfPolName=""/>
+
+<fvRsCtx tnFvCtxName="VRF-hangwe-all"/>
+
+<fvRsIgmpsn tnIgmpSnoopPolName=""/>
+
+<fvSubnet name="" descr="" scope="private" virtual="no" preferred="no" ip="201.1.32.1/24" ctrl=""/>
+
+<fvSubnet name="" descr="" scope="private" virtual="no" preferred="no" ip="202.1.32.1/24" ctrl=""/>
+
+<fvRsABDPolMonPol tnMonEPGPolName="default"/>
+
+<fvRsBdToEpRet tnFvEpRetPolName="" resolveAct="resolve"/>
+
+</fvBD>
+
+<fvRsTenantMonPol tnMonEPGPolName="default"/>
+
+
+<fvAp name="ANP-hangwe-test01" ownerTag="" ownerKey="" descr="" prio="unspecified">
+
+<fvRsApMonPol tnMonEPGPolName="default"/>
+
+
+<fvAEPg name="EPG-hangwe-app" descr="" prio="unspecified" pcEnfPref="unenforced" matchT="AtleastOne" isAttrBasedEPg="no">
+
+<fvRsCons prio="unspecified" tnVzBrCPName="CTR-hangwe-app2db"/>
+
+<fvRsCustQosPol tnQosCustomPolName=""/>
+
+<fvRsBd tnFvBDName="BD-hangwe-all"/>
+
+<fvRsProv prio="unspecified" matchT="AtleastOne" tnVzBrCPName="CTR-hangwe-web2app"/>
+
+</fvAEPg>
+
+
+<fvAEPg name="EPG-hangwe-db" descr="" prio="unspecified" pcEnfPref="unenforced" matchT="AtleastOne" isAttrBasedEPg="no">
+
+<fvRsCustQosPol tnQosCustomPolName=""/>
+
+<fvRsBd tnFvBDName="BD-hangwe-all"/>
+
+<fvRsProv prio="unspecified" matchT="AtleastOne" tnVzBrCPName="CTR-hangwe-app2db"/>
+
+</fvAEPg>
+
+
+<fvAEPg name="EPG-hangwe-web" descr="" prio="unspecified" pcEnfPref="unenforced" matchT="AtleastOne" isAttrBasedEPg="no">
+
+<fvRsCons prio="unspecified" tnVzBrCPName="CTR-hangwe-web2app"/>
+
+<fvRsCustQosPol tnQosCustomPolName=""/>
+
+<fvRsBd tnFvBDName="BD-hangwe-all"/>
+
+</fvAEPg>
+
+</fvAp>
+
+</fvTenant>
+
+</imdata>
